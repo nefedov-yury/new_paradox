@@ -1,3 +1,8 @@
+TODO:
+2) colors for html-file
+3) check colors in xterm and iTerm2
+4) ---
+
 ===========================================================
 paradox.vim    ->    New/Other/
 vim-colorsamplerpack/colors/paradox.vim
@@ -132,9 +137,26 @@ rare: vim
 ===========================================================
 TODO: tabs: <Ctrl-V><Tab>
 ===========================================================
+useless:
 let g:terminal_ansi_colors = [
       \ '#646464', '#825d4d', '#728c62', '#ada16d',
       \ '#4d7b82', '#8a7267', '#729494', '#aaaaaa',
       \ '#8a8a8a', '#cf937a', '#98d9aa', '#fae79d',
       \ '#7ac3cf', '#d6b2a1', '#ade0e0', '#e0e0e0' ]
+===========================================================
+Test rainbow colors
+===========================================================
+a0 + (a1*[a2*{a3 + (a4*(a5*(a6+a7)))}])
+a0 + [a1*{a2*(a3 + [a4*[a5*[a6+a7]]])}]
+a0 + {a1*(a2*[a3 + {a4*{a5*{a6+a7}}}])}
+[a0,a1,{a2,a3},a4,a5]
+
+pink          yellow        orange        cyan          green
+#ffafd7 :6.3, #d7ff00 :9.3, #ff8700 :4.5, #afffff :9.5, #87ff87 :8.5
+(330,100,84)  (69,100,50)   (32,100,50)   (180,100,84)  (120,100,76)
+
+Actual contrast may be lower due to the thinness of the bracket
+symbols and the way text is rendered.
+X11 96dpi  :4.7  :7.2  :3.4 :7.2 :6.7
+
 ===========================================================

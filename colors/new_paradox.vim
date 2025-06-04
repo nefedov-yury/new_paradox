@@ -155,12 +155,21 @@ hi link   Tag           Special
 " Note: TODO, FIXME ... XXX
 highlight Todo          guifg=bg        guibg=#a1c587   gui=bold
 
-" GitGutter plugin: colors as in diff mode
+" GitGutter plugin: as in diff mode but bg and fg are swapped
 " ----------------
-highlight GitGutterChange guifg=#053833 guibg=#9ac7f4   gui=bold
-highlight GitGutterAdd    guifg=#053833 guibg=#7de87d   gui=bold
-highlight GitGutterDelete guifg=#053833 guibg=#dbdb57   gui=bold
+highlight GitGutterChange  guifg=#9ac7f4  guibg=#053833  gui=bold
+highlight GitGutterAdd     guifg=#7de87d  guibg=#053833  gui=bold
+highlight GitGutterDelete  guifg=#dbdb57  guibg=#053833  gui=bold
 hi! link  GitGutterChangeDeleteLine     GitGutterChange
+
+" Rainbow plugin: https://github.com/luochen1990/rainbow
+" --------------
+if exists('g:rainbow_active')
+  let g:rainbow_conf = get(g:, 'rainbow_conf', {})
+  let g:rainbow_conf.guifgs = [
+        \'#faafd7','#d7ff00','#ff8700','#afffff','#87ff87' ]
+  let g:rainbow_conf.ctermfgs = [218, 190, 208, 159, 120]
+endif
 
 " are these useful?
 " ----------------
@@ -171,3 +180,4 @@ highlight Error         guifg=#ffffff   guibg=#953232   gui=underline
 
 " white terminal
 highlight Terminal      guifg=black   guibg=white   gui=NONE
+
