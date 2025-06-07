@@ -1,7 +1,5 @@
 TODO:
-2) colors for html-file
-3) check colors in xterm and iTerm2
-4) ---
+*) colors for html-file
 
 ===========================================================
 paradox.vim    ->    New/Other/
@@ -12,6 +10,8 @@ Vim's colorscheme incubator:
 https://github.com/vim/colorschemes/
 /usr/share/vim/vim91/colors/
 
+:ru colors/tools/check_colors.vim
+
 ===========================================================
 https://webaim.org/resources/contrastchecker/
 TPGi Color Contrast Analyser (CCA):
@@ -20,41 +20,41 @@ https://www.tpgi.com/color-contrast-checker/
 ===========================================================
 new_paradox rgb (HSL),  base contrast: ~ 7.2
 ===========================================================
-Normal        guifg=#d4d4d4 (0,0,83)    guibg=#074640 (174,82,15)
-Visual        guifg=#e6e6e6 (0,0,90)    guibg=#0b7268 (174,82,25)
+Normal  guifg=#d4d4d4 (0,0,83) guibg=#074640 (174,82,15) :7.2
+Visual  guifg=#e6e6e6 (0,0,90) guibg=#0b7268 (174,82,25) :4.6
 
-Search        guifg=bg            guibg=#98c379 (94,38,62)
-CurSearch     guifg=bg            guibg=#cde0b6 (87,40,80)  gui=bold
+Search     guifg=bg    guibg=#98c379 (94,38,62)          :5.3
+CurSearch  guifg=bg    guibg=#cde0b6 (87,40,80) gui=bold :7.6
 
-Cursor        guifg=bg            guibg=#14c8c8 (180,82,43)
+Cursor     guifg=bg    guibg=#14c8c8 (180,82,43) :5.2
 
-" match brackets: 9.0
-MatchParen    guifg=bg            guibg=#f3f33f (60,88,60)
+" match brackets
+MatchParen    guifg=bg            guibg=#f3f33f (60,88,60) :9.0
 
-" nontext & SpecialKey: 6.1
-NonText       guifg=#ff9494 ( 0,100,79)  guibg=#053833 (174,82,12)
-SpecialKey    guifg=#ff9494              guibg=#053833
+" nontext & SpecialKey
+NonText     guifg=#ff9494 ( 0,100,79)  guibg=#053833 (174,82,12) :6.1
+SpecialKey  guifg=#ff9494              guibg=#053833
 
-SignColumn                               guibg=#053833
-FoldColumn    guifg=#8bd09c (134,42,68)  guibg=#053833
-Folded        guifg=#6ec483 (134,42,60)  guibg=#042a26 (174,82,9)
+SignColumn                             guibg=#053833
+FoldColumn  guifg=#8bd09c (134,42,68)  guibg=#053833            :7.2
+Folded      guifg=#6ec483 (134,42,60)  guibg=#042a26 (174,82,9) :7.2
 
-StatusLine    guifg=#212c2b (174,14,15)  guibg=#98c379 (94,38,62)
-StatusLineNC  guifg=#98c379              guibg=#212c2b
-WildMenu      guifg=#98c379              guibg=#212c2b   gui=underline
-VertSplit     guifg=#98c379              guibg=#98c378
+StatusLine   guifg=#212c2b (174,14,15)  guibg=#98c379 (94,38,62) :7.1
+StatusLineNC guifg=#98c379              guibg=#212c2b
+WildMenu     guifg=#98c379              guibg=#212c2b gui=underline
+VertSplit    guifg=#98c379              guibg=#98c378
 
-CursorLine                               guibg=#095d55 (174,82,20)
-CursorColumn                             guibg=#095d55
-ColorColumn                              guibg=#953232 (0,50,39)
+CursorLine                     guibg=#095d55 (174,82,20) :1.4
+CursorColumn                   guibg=#095d55
+ColorColumn                    guibg=#953232 (0,50,39) :1.4
 
-LineNr        guifg=#b2cb62 (74,50,59)   guibg=#053833 (174,82,12)
-CursorLineNr  guifg=#cbee58 (74,82,64)   guibg=#084f48 (174,82,17)
+LineNr        guifg=#b2cb62 (74,50,59) guibg=#053833 (174,82,12) :7.2
+CursorLineNr  guifg=#cbee58 (74,82,64) guibg=#084f48 (174,82,17) :7.2
 
-Pmenu         guifg=#212c2b (174,14,15)  guibg=#98c379 (94,38,62)
-PmenuSel      guifg=#98c379              guibg=#212c2b   gui=underline
-PmenuSbar                                guibg=#042a26 (174,82,9)
-PmenuThumb                               guibg=#669966 (120,20,50)
+Pmenu       guifg=#212c2b (174,14,15)  guibg=#98c379 (94,38,62) :7.1
+PmenuSel    guifg=#98c379              guibg=#212c2b gui=underline
+PmenuSbar                              guibg=#042a26 (174,82,9)
+PmenuThumb                             guibg=#669966 (120,20,50)
 
 " 'guisp' sets the color for the underline curl 'gui=undercurl'
 SpellBad      guisp=#ffc7c7 (  0,100,89) guibg=#5d3232 (  0,30,28)
@@ -62,21 +62,19 @@ SpellCap      guisp=#ccccff (240,100,90) guibg=#24246b (240,50,28)
 SpellLocal    guisp=#00ebeb (180,100,46) guibg=bg
 SpellRare     guisp=#ffbdff (300,100,87) guibg=#562e56 (300,30,26)
 
-" warnings: 4.7, error: 7.1
-WarningMsg    guifg=#ff8888 ( 0,100,76)  guibg=bg
-ErrorMsg      guifg=#ffff77 (60,100,73)  guibg=#953232 (0,50,39)
+WarningMsg    guifg=#ff8888 ( 0,100,76)  guibg=bg  :4.7
+ErrorMsg      guifg=#ffff77 (60,100,73)  guibg=#953232 (0,50,39) :7.1
 
-" directory: 5.9
-Question      guifg=#95eb14 (84,84,50)   guibg=bg
+Question      guifg=#95eb14 (84,84,50)   guibg=bg :7.2
 Title         guifg=#95eb14              guibg=bg
 MoreMsg       guifg=#95eb14              guibg=bg
 ModeMsg       guifg=#95eb14              guibg=bg
-Directory     guifg=#6acbfb (200,95,70)  guibg=bg  gui=bold
+Directory     guifg=#6acbfb (200,95,70)  guibg=bg  gui=bold :5.9
 
-DiffChange    guifg=#053833 (174,82,12)  guibg=#9ac7f4 (210, 80,78)
-DiffText      guifg=#000000 (black)      guibg=#3399ff (210,100,60)
-DiffAdd       guifg=bg                   guibg=#7de87d (120, 70,70)
-DiffDelete    guifg=bg                   guibg=#dbdb57 ( 60, 65,60)
+DiffChange  guifg=#053833 (174,82,12)  guibg=#9ac7f4 (210, 80,78) :7.3
+DiffText    guifg=#000000 (black)      guibg=#3399ff (210,100,60) :7.1
+DiffAdd     guifg=bg                   guibg=#7de87d (120, 70,70) :7.0
+DiffDelete  guifg=bg                   guibg=#dbdb57 ( 60, 65,60) :7.3
 
 " Syntax Highlight
 
@@ -158,5 +156,48 @@ pink          yellow        orange        cyan          green
 Actual contrast may be lower due to the thinness of the bracket
 symbols and the way text is rendered.
 X11 96dpi  :4.7  :7.2  :3.4 :7.2 :6.7
+
+===========================================================
+colors in iTerm2:
+Noemal bg #004740 fg #d4d4d4 :7.2
+Visual bg #007468 fg #e6e6e6 :4.5
+Search      bg #8cc570           :5.2
+CurSearch   bg #c8e1b2 ->nobold  :7.5
+Cursor      bg #00a09e :3.3 (iTerm2 settings)
+MatchParen  bg #f3f300 :8.9
+
+NonText     bg #003933 fg #ff8d91 :5.8
+
+FoldColumn  bg #003933 fg #74d298 :7.0
+Folded      bg #002b27 fg #4bc77c :7.1
+
+StatusLine  bg #1e2c2b fg #8cc570 ->bold :7.1
+
+CursorLine  bg #005f5f :1.4
+ColorColumn bg #a2272d :1.4
+
+LineNr        bg #003933 fg #accc4f :7.1
+CursorLineNr  bg #005148 fg #c2ee2f :6.9
+
+Comment       fg #fdc97e :7.0
+Constant      fg #00ffd4 :8.2
+String        fg #87e0d3 :6.9
+Character     fg #e1ed6c :8.4
+Identifier    fg #eddcc0 :7.9
+Statement     fg #ffffff :10.6
+PreProc       fg #adef8c :7.8
+
+rainbow:
+pink          yellow        orange        cyan          green
+#ffabd9 :6.1, #cdff00 :9.1, #ff7e00 :4.2, #95ffff :9.1, #4cff76 :8.0
+
+===========================================================
+colors in Xterm == gvim, except cursor
+Noemal bg #074640 fg #d4d4d4 :7.2
+Visual bg #0B7268 fg #e6e6e6 :4.6
+Search      bg #98c379           :5.3
+CurSearch   bg #cde0b6 ->nobold  :7.6
+Cursor      bg #359d9d :3.3 (xterm settings)
+MatchParen  bg #f3f33f :9.0
 
 ===========================================================
