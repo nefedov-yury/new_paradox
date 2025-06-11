@@ -13,15 +13,22 @@ https://github.com/vim/colorschemes/
 :ru colors/tools/check_colors.vim
 
 ===========================================================
-https://webaim.org/resources/contrastchecker/
-TPGi Color Contrast Analyser (CCA):
-https://www.tpgi.com/color-contrast-checker/
+* Contrast ratio acoding to WCAG 2.x:
+  TPGi Color Contrast Analyser (CCA)
+  https://www.tpgi.com/color-contrast-checker/
+  -> further this ratio is denoted as :R (which means R:1)
+
+* The Accessible Perceptual Contrast Algorithm:
+  https://www.smashingmagazine.com/2022/09/realities-myths-contrast-color/
+  -> further this contrast is denoted as -V (which means Lc=-V)
 
 ===========================================================
-new_paradox rgb (HSL),  base contrast: ~ 7.2
+color_group  rgb (HSL) 'contrast'
+contrast ratio acoding to WCAG 2.x  :Ratio
+
 ===========================================================
-Normal  guifg=#d4d4d4 (0,0,83) guibg=#074640 (174,82,15) :7.2
-Visual  guifg=#e6e6e6 (0,0,90) guibg=#0b7268 (174,82,25) :4.6
+Normal  guifg=#d4d4d4 (0,0,83) guibg=#074640 (174,82,15) :7.2 Lc=-71
+Visual  guifg=#e6e6e6 (0,0,90) guibg=#0b7268 (174,82,25) :4.6 Lc=-68
 
 Search     guifg=bg    guibg=#98c379 (94,38,62)          :5.3
 CurSearch  guifg=bg    guibg=#cde0b6 (87,40,80) gui=bold :7.6
@@ -201,3 +208,29 @@ Cursor      bg #359d9d :3.3 (xterm settings)
 MatchParen  bg #f3f33f :9.0
 
 ===========================================================
+Terminal ??
+main problem - there is no dark green background, 19 is min
+===========================================================
+Normal  :7.2
+bg #074640 (174,82,15) -> 023: #005f5f, HSL(180°,100,19)
+fg #d4d4d4 (0,0,83)    -> 188: #d7d7d7, HSL(0°,0,84)      :5.1
+                       -> 195: #d7ffff, HSL(180°,100,92)  :7.0
+
+Visual :4.6
+bg=#0b7268 (174,82,25) -> 030: #008787, HSL(180°,100,26)
+fg=#e6e6e6 (0,0,90)    -> 231: #ffffff, HSL(0°,0,100)     :4.4
+
+Search :5.3
+bg=#98c379 (94,38,62)  -> 150: #afd787, HSL(90°,50,69)    :4.6
+CurSearch :7.6
+bg=#cde0b6 (87,40,80)  -> 193: #d7ffaf, HSL(90°,100,84)   :6.7
+
+Cursor     bg #359d9d  :2.3 (iTerm2 settings) ?
+
+===========================================================
+Advanced Perceptual Contrast Algorithm
+===========================================================
+Source Code Pro h16
+Xx
+height X =2.2mm, x = 1.8  1.8/2.2 = 0.8
+
