@@ -1,0 +1,131 @@
+\documentclass[a4paper,12pt]{article}
+
+% {{{1 -> LaTeX head
+\usepackage[10pt]{type1ec}
+\usepackage[T1,T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+
+% LaTeX packages
+\usepackage{fullpage}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+% \usepackage{textcomp} % \textdegree
+
+% \usepackage{xcolor} % for hyperref
+% \colorlet{darkgreen}{green!40!black}
+
+% % https://en.wikibooks.org/wiki/LaTeX/Hyperlinks
+% \PassOptionsToPackage{unicode}{hyperref} % see also \texorpdfstring
+% \usepackage[colorlinks,bookmarks=true]{hyperref}
+% \hypersetup{citecolor=darkgreen}
+
+% \usepackage{caption}  % hypcap is true by default
+
+\sloppy
+\pagenumbering{gobble}
+% ]]]1
+
+\begin{document}
+% \layout
+
+\subsection*{APCA Contrast prediction equation 0.0.98G-4g-base-W3}
+
+\vspace*{2ex} \noindent
+Clamp minimum contrast to 10\% then offset \& final scale:
+\begin{equation*}
+  \text{Lightness Contrast} \equiv L^c =
+  \begin{cases}
+    0.0 &
+    \text{if $\left|S_{apc}\right| < W_\text{clamp}$},\\
+    %
+    \left(S_{apc} - W_\text{offset}\right) \times 100 &
+    \text{if $S_{apc} > 0$},\\
+    %
+    \left(S_{apc} + W_\text{offset}\right) \times 100 &
+    \text{if $S_{apc} < 0$}.
+  \end{cases}
+\end{equation*}
+
+\vspace*{2ex} \noindent
+Determine polarity, find lightness difference and scale:
+\begin{equation*}
+  S_{apc} =
+  \begin{cases}
+    \left(Y_{bg}^{Nbg} - Y_{txt}^{Ntx}\right) \times W_{scale} &
+    \text{if $Y_{bg} > Y_{txt}$ \quad
+    \small (normal polarity: dark text/light bg)},\\[2ex]
+    %
+    \left(Y_{bg}^{Rbg} - Y_{txt}^{Rtx}\right) \times W_{scale} &
+    \text{if $Y_{bg} < Y_{txt}$ \quad
+    \small (reverse polarity: light text/dark bg)}.
+  \end{cases}
+\end{equation*}
+
+\vspace*{2ex} \noindent
+Soft clip and clamp black levels:
+\begin{equation*}
+  \begin{aligned}
+    Y_{txt} & = f_{sc}(Y_s) \quad & \text{\small where $Y_s$
+    is derived from the color of the text, symbol or object};\\
+    %
+    Y_{bg} & = f_{sc}(Y_s) \quad & \text{\small where $Y_s$
+    is derived from the color used for the adjacent background};\\
+    %
+    Y_\text{fld} &\ & \text{\small is unused in W3 version}.
+  \end{aligned}
+\end{equation*}
+%
+\begin{equation*}
+  f_{sc}(Y_c) =
+  \begin{cases}
+    0.0 & \text{if $Y_c < 0.0$},\\
+    Y_c + \left(B_\text{thrsh} - Y_c\right)^{B_\text{clip}} &
+    \text{if $Y_c < B_\text{thrsh}$}, \\
+    %
+    Y_c & \text{otherwise}.
+  \end{cases}
+\end{equation*}
+
+\vspace*{2ex} \noindent
+Estimate screen luminance using sRGB coefficients:
+\begin{equation*}
+  Y_s = \sum
+  \begin{cases}
+    { %\color{red}
+      (R^\prime / 255.0)^{S_{trc}} \times 0.2126729}\\
+    { %\color{green}
+      (G^\prime / 255.0)^{S_{trc}} \times 0.7151522}\\
+    { %\color{blue}
+      (B^\prime / 255.0)^{S_{trc}} \times 0.0721750}
+  \end{cases}
+\end{equation*}
+
+\vspace*{2ex} \noindent
+Constants for 0.0.98G-4g-sRGB:
+\begin{equation*}
+  \begin{aligned}
+    \text{Powercurve} &\text{~exponents}
+    &\qquad \text{Clamps~} &\text{and scalers}\\
+    S_{trc} &= 2.4   &B_{clip}        &= 1.414 \\
+    Ntx     &= 0.57  &B_\text{thrsh}  &= 0.022 \\
+    Nbg     &= 0.56  &W_{scale}       &= 1.14 \\
+    Rtx     &= 0.62  &W_\text{offset} &= 0.027 \\
+    Rbg     &= 0.65  &W_\text{clamp}  &= 0.1
+  \end{aligned}
+\end{equation*}
+
+\vspace*{2ex} \noindent
+Input: $R^\prime, G^\prime, B^\prime \in \text{sRGB, specified in the
+range}~[0-255].$
+
+\vfill
+\begin{center}
+  \bfseries \itshape
+  APCA $\bullet$ W3 version 0.1.9 developed for WCAG 3 contrast
+  guidelines\\
+  Copyright © 2019-2022 by Andrew Somers. All Rights Reserved.
+\end{center}
+
+\end{document}
