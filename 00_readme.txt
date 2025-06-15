@@ -1,3 +1,5 @@
+vim: et ts=8 tw=80
+-------------------
 TODO:
 *) colors for html-file
 
@@ -24,42 +26,40 @@ https://github.com/vim/colorschemes/
 
 ===========================================================
 color_group  rgb (HSL) 'contrast'
-contrast ratio acoding to WCAG 2.x  :Ratio
-
 ===========================================================
 Normal  guifg=#d4d4d4 (0,0,83) guibg=#074640 (174,82,15) :7.2 Lc=-71
 Visual  guifg=#e6e6e6 (0,0,90) guibg=#0b7268 (174,82,25) :4.6 Lc=-68
 
-Search     guifg=bg    guibg=#98c379 (94,38,62)          :5.3
-CurSearch  guifg=bg    guibg=#cde0b6 (87,40,80) gui=bold :7.6
+Search     guifg=bg   guibg=#98c379 (94,38,62)           :5.3 Lc=-54
+CurSearch  guifg=bg   guibg=#cde0b6 (87,40,80) gui=bold  :7.6 Lc=-74
 
-Cursor     guifg=bg    guibg=#14c8c8 (180,82,43) :5.2
+Cursor     guifg=bg   guibg=#14c8c8 (180,82,43)          :5.2 Lc=-53
 
 " match brackets
-MatchParen    guifg=bg            guibg=#f3f33f (60,88,60) :9.0
+MatchParen    guifg=bg  guibg=#f3f33f (60,88,60)         :9.0 Lc=-86
 
 " nontext & SpecialKey
-NonText     guifg=#ff9494 ( 0,100,79)  guibg=#053833 (174,82,12) :6.1
+NonText     guifg=#ff9494 ( 0,100,79)  guibg=#053833 (174,82,12) :6.1,-55
 SpecialKey  guifg=#ff9494              guibg=#053833
 
 SignColumn                             guibg=#053833
-FoldColumn  guifg=#8bd09c (134,42,68)  guibg=#053833            :7.2
-Folded      guifg=#6ec483 (134,42,60)  guibg=#042a26 (174,82,9) :7.2
+FoldColumn  guifg=#8bd09c (134,42,68)  guibg=#053833            :7.2,-63
+Folded      guifg=#6ec483 (134,42,60)  guibg=#042a26 (174,82,9) :7.2,-58
 
-StatusLine   guifg=#212c2b (174,14,15)  guibg=#98c379 (94,38,62) :7.1
-StatusLineNC guifg=#98c379              guibg=#212c2b
+StatusLine   guifg=#212c2b (174,14,15)  guibg=#98c379 (94,38,62) :7.1,60
+StatusLineNC guifg=#98c379              guibg=#212c2b            :7.1,-60
 WildMenu     guifg=#98c379              guibg=#212c2b gui=underline
 VertSplit    guifg=#98c379              guibg=#98c378
 
-CursorLine                     guibg=#095d55 (174,82,20) :1.4
+CursorLine                     guibg=#095d55 (174,82,20) txt:5.2,-64
 CursorColumn                   guibg=#095d55
-ColorColumn                    guibg=#953232 (0,50,39) :1.4
+ColorColumn                    guibg=#953232 (0,50,39)   txt:5.1,-63
 
-LineNr        guifg=#b2cb62 (74,50,59) guibg=#053833 (174,82,12) :7.2
-CursorLineNr  guifg=#cbee58 (74,82,64) guibg=#084f48 (174,82,17) :7.2
+LineNr        guifg=#b2cb62 (74,50,59) guibg=#053833 (174,82,12) :7.2,-63
+CursorLineNr  guifg=#cbee58 (74,82,64) guibg=#084f48 (174,82,17) :7.2,-76
 
-Pmenu       guifg=#212c2b (174,14,15)  guibg=#98c379 (94,38,62) :7.1
-PmenuSel    guifg=#98c379              guibg=#212c2b gui=underline
+Pmenu       guifg=#212c2b (174,14,15)  guibg=#98c379 (94,38,62) :7.1,60
+PmenuSel    guifg=#98c379           guibg=#212c2b gui=underline :7.1,-60
 PmenuSbar                              guibg=#042a26 (174,82,9)
 PmenuThumb                             guibg=#669966 (120,20,50)
 
@@ -69,50 +69,50 @@ SpellCap      guisp=#ccccff (240,100,90) guibg=#24246b (240,50,28)
 SpellLocal    guisp=#00ebeb (180,100,46) guibg=bg
 SpellRare     guisp=#ffbdff (300,100,87) guibg=#562e56 (300,30,26)
 
-WarningMsg    guifg=#ff8888 ( 0,100,76)  guibg=bg  :4.7
-ErrorMsg      guifg=#ffff77 (60,100,73)  guibg=#953232 (0,50,39) :7.1
+WarningMsg    guifg=#ff8888 ( 0,100,76)  guibg=bg                :4.7,-48
+ErrorMsg      guifg=#ffff77 (60,100,73)  guibg=#953232 (0,50,39) :7.1,-86
 
-Question      guifg=#95eb14 (84,84,50)   guibg=bg :7.2
+Question      guifg=#95eb14 (84,84,50)   guibg=bg :7.2,-71
 Title         guifg=#95eb14              guibg=bg
 MoreMsg       guifg=#95eb14              guibg=bg
 ModeMsg       guifg=#95eb14              guibg=bg
-Directory     guifg=#6acbfb (200,95,70)  guibg=bg  gui=bold :5.9
+Directory     guifg=#6acbfb (200,95,70)  guibg=bg  gui=bold :5.9,-60
 
-DiffChange  guifg=#053833 (174,82,12)  guibg=#9ac7f4 (210, 80,78) :7.3
-DiffText    guifg=#000000 (black)      guibg=#3399ff (210,100,60) :7.1
-DiffAdd     guifg=bg                   guibg=#7de87d (120, 70,70) :7.0
-DiffDelete  guifg=bg                   guibg=#dbdb57 ( 60, 65,60) :7.3
+DiffChange  guifg=#053833 (174,82,12)  guibg=#9ac7f4 (210, 80,78) :7.3,64
+DiffText    guifg=#000000 (black)      guibg=#3399ff (210,100,60) :7.1,49
+DiffAdd     guifg=bg                   guibg=#7de87d (120, 70,70) :7.0,68
+DiffDelete  guifg=bg                   guibg=#dbdb57 ( 60, 65,60) :7.3,70
 
 " Syntax Highlight
 
-" comment: 7.0, special comment: 7.9
+" comment: 7.0, Lc=-70, special comment: 7.9, Lc=-77
 Comment         guifg=#f5cb89 ( 37, 84,75)  guibg=bg
 SpecialComment  guifg=#fdd3d3 (  0, 91,91)  guibg=bg  gui=italic
 
-" constant: 7.9
+" constant: 7.9, Lc=-78
 Constant        guifg=#1ff9d5 (170, 95,55)  guibg=bg
 
-" string: 7.0, character: 8.5
+" string: 7.0, Lc=-70;  character: 8.5, Lc=-82
 String          guifg=#9cded3 (170, 50,74)  guibg=bg
 Character       guifg=#e3ed7f ( 65, 75,71)  guibg=bg
 SpecialChar     guifg=#e3ed7f               guibg=bg
 
-" identifier: 8.0
+" identifier: 8.0, Lc=-77
 Identifier      guifg=#eaddc3 ( 40, 48,84)  guibg=bg
 
-" statement: 10.7
+" statement: 10.7, -99
 Statement       guifg=#ffffff (white)       guibg=bg
 
-" preproc: 8.0
+" preproc: 8.0, -78
 PreProc         guifg=#bbed97 ( 95, 70,76)  guibg=bg
 
-" type: 7.2
+" type: 7.2, -71
 Type            guifg=#99ddff (200,100,80)  guibg=bg
 
-" special: 7.9
+" special: 7.9, -77
 Special         guifg=#fdd3d3 (  0, 91,91)  guibg=bg
 
-" TODO: 5.5
+" TODO: 5.5, +55
 Todo            guifg=bg   guibg=#a1c587 (95,35,65)   gui=bold
 
 ===========================================================
