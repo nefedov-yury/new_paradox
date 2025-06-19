@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# see https://en.wikipedia.org/wiki/ANSI_escape_code
 
 import argparse
 import sys
@@ -73,30 +74,33 @@ def rgb_hsv(r, g, b):
     return [H, SV, V]
 
 
-def Pstr(hex_rgb):
+def Pstr(hex_rgb, bf=False):
     rgb = decode(hex_rgb)
+    r, g, b = rgb
     hsl = rgb_hsl(*rgb)
     hsv = rgb_hsv(*rgb)
 
-    lpr = lambda h,s,l: f'{round(h)}°,{round(s)},{round(l)}'
+    def lpr(h, s, l): return f'{round(h)}°,{round(s)},{round(l)}'
     # text to print
     pstr = f'{hex_rgb} HSL({lpr(*hsl)}) HSV({lpr(*hsv)})'
 
-
-    # background
-    r, g, b = rgb
-    bg = f'\033[48;2;{r};{g};{b}m'
-
     # foreground: color for text
-    fg = f'\033[38;2;0;0;0m'  # black
+    fg = '\033[38;2;0;0;0'  # black
     # simplified formula for luminance: range: [0,1]
     L = (0.1*r + 0.7*g + 0.2*b)/255
     if L < 0.5:
-        fg = f'\033[38;2;255;255;255m'  # white
+        fg = '\033[38;2;255;255;255'  # white
+
+    if bf:
+        fg += ';1'  # use bold font
+
+    # background
+    # bg = f'\033[48;2;{r};{g};{b}m'
+    bg = f';48;2;{r};{g};{b}m'
 
     # end of escape
     ee = '\033[0m'
-    return bg + fg + f' {pstr} ' + ee
+    return fg + bg + f' {pstr} ' + ee
 
 
 def main():
@@ -104,11 +108,15 @@ def main():
         description='displays the specified color in the terminal')
     parser.add_argument('color',
                         help='24bit hex color, eg #c8c8c8')
+    parser.add_argument('-B', '--bold', action='store_true',
+                        help='use bold font to printing')
     args = parser.parse_args()
 
     # print('color=', args.color)
+    # print('bold=', args.bold)
+
     hex_rgb = args.color
-    print(Pstr(hex_rgb))
+    print(Pstr(hex_rgb, args.bold))
 
 
 if __name__ == "__main__":

@@ -1,10 +1,9 @@
 #!/usr/bin/env python3
-# The visibility of the text is assessed using
-# 1) Contrast ratio calculation (as it is defined in WCAG 2.x)
+# The visibility of the text is estimated using
+# 1) Contrast ratio calculation as it is defined in WCAG 2.x
 # 2) Advanced Perceptual Contrast Algorithm (draft of WCAG 3)
 #    It claims to be a contrast for readability of text on
-#    self-illuminated displays.
-#    https://github.com/Myndex
+#    self-illuminated displays: https://github.com/Myndex
 
 import argparse
 import sys
@@ -19,20 +18,22 @@ def decode(hex_str):
     return r, g, b
 
 
-def prt_in_clrs(msg, fg, bg):
+def prt_in_clrs(msg, fg, bg, bold=False):
     """
     Print in terminal
     :msg: message
     :fg:  r,g,b color for text
     :bg:  r,g,b color for backgrond
+    :bold: use bold font
     """
-    # background<F8>
+    # background
     r0, g0, b0 = bg
     ebg = f'\033[48;2;{r0};{g0};{b0}m'
 
     # foreground
     r1, g1, b1 = fg
-    efg = f'\033[38;2;{r1};{g1};{b1}m'
+    bf = ';1' if bold else ''
+    efg = f'\033[38;2;{r1};{g1};{b1}{bf}m'
 
     # end of escape
     eend = '\033[0m'
@@ -172,15 +173,18 @@ def main():
         'color', help='24bit hex color for text, eg #0000ff')
     parser.add_argument(
         '-b', '--background', default='#ffffff',
-        help='background color, default #ffffff (white)')
+        help='background color, default: #ffffff (white)')
     parser.add_argument(
         '-t', '--template', default='example text: ',
-        help='text template to display in specified colors')
+        help='text template to print, default: "%(default)s"')
+    parser.add_argument('-B', '--bold', action='store_true',
+                        help='use bold font to printing')
     args = parser.parse_args()
 
     # print('color=', args.color)
     # print('background=', args.background)
     # print('template=', args.template)
+    # print('bold=', args.bold)
 
     hex_fg = args.color
     hex_bg = args.background
@@ -188,7 +192,7 @@ def main():
 
     rgb_fg = decode(hex_fg)
     rgb_bg = decode(hex_bg)
-    prt_in_clrs(text, rgb_fg, rgb_bg)
+    prt_in_clrs(text, rgb_fg, rgb_bg, args.bold)
 
     ratio_WCAG2 = contrast_ratio_WCAG2(rgb_fg, rgb_bg)
     print(f'contrast ratio WCAG2= {ratio_WCAG2:.1f}')
