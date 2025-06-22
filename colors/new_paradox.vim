@@ -12,7 +12,7 @@ if exists("syntax_on")
   syntax reset
 endif
 
-let colors_name = "new_paradox"
+let g:colors_name = "new_paradox"
 
 hi Normal       guifg=#e6e6e6   guibg=#054640   gui=NONE    cterm=NONE
 
@@ -186,6 +186,15 @@ let g:terminal_ansi_colors = [
       \    '#99e6ff','#ffb3ec','#03ffff','#fffbe8' ]
 hi! link  StatusLineTerm    StatusLine
 hi! link  StatusLineTermNC  StatusLineNC
+" Neo Light 
+if exists('g:neo_light_term') && g:neo_light_term > 0
+  hi Terminal   guifg=#004b3f   guibg=#fffbe8   gui=NONE    cterm=NONE
+  let g:terminal_ansi_colors = [
+        \'#133b34','#c22222','#167116','#806100',
+        \    '#3c3cdc','#971b97','#0b7373','#e8dfb6',
+        \'#004b3f','#f21010','#0a9109','#ffd500',
+        \    '#6262ff','#cc0bcc','#009494','#fffbe8' ]
+endif
 
 " Are these useful?
 " ----------------
