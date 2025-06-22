@@ -1,10 +1,8 @@
 " Name:         new_paradox
 " Description:  This is a modification of the paradox color scheme.
-" I tried to make sure that the text have a contras ratio of
-" at least 7:1 for regular font and 4.5:1 for bold font.
-" The contrast for graphic elements (cursor, fold-line etc.) may be
-" low and preference is given to good visibility of the text on them.
-" Tested with vim-airline theme 'deus'.
+" The theme modification was intended to improve the readability of
+" the text.
+" Best used with vim-airline 'deus' theme.
 " Sets the colors for the Rainbow plugin for displaying paired
 " brackets
 
@@ -102,10 +100,10 @@ hi QuickFixLine guifg=NONE      guibg=NONE      gui=reverse cterm=reverse
 " --------------
 hi SpellBad     guisp=#ffc7c7   guibg=#5d3232   gui=undercurl cterm=underline
 hi SpellCap     guisp=#ccccff   guibg=#24246b   gui=undercurl cterm=underline
-" it seems there are no rare words in the vim-dictionary
-hi SpellRare    guisp=#ffbdff   guibg=#562e56   gui=undercurl cterm=underline
 " (:set spell spelllang=en_us) centre center, color colour
 hi SpellLocal   guisp=#00ebeb   guibg=bg        gui=undercurl cterm=underline
+" it seems there are no rare words in the vim-dictionary
+hi SpellRare    guisp=#ffbdff   guibg=#562e56   gui=undercurl cterm=underline
 
 " Diff Mode
 " ---------
@@ -161,7 +159,7 @@ hi Todo         guifg=bg        guibg=#a1c587   gui=bold    cterm=NONE
 
 hi Underlined   guifg=NONE      guibg=NONE      gui=underline cterm=underline
 
-" GitGutter plugin: as in diff mode but bg and fg are swapped
+" GitGutter plugin: colors are as in diff mode but bg and fg are swapped
 " ----------------
 hi GitGutterChange  guifg=#65b3ff  guibg=#063833  gui=bold  cterm=NONE
 hi GitGutterAdd     guifg=#a9f0a9  guibg=#063833  gui=bold  cterm=NONE
@@ -171,7 +169,7 @@ hi! link  GitGutterChangeDeleteLine  GitGutterChange
 " Rainbow plugin: https://github.com/luochen1990/rainbow
 " --------------
 " Note that the rainbow plugin also significantly changes the colors
-" in HTML files.
+" in HTML files
 if exists('g:rainbow_active')
   let g:rainbow_conf = get(g:, 'rainbow_conf', {})
   let g:rainbow_conf.guifgs = [
