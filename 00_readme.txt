@@ -61,10 +61,10 @@ WildMenu     guifg=#b8ef90 (95°,75,75) guibg=#212c2b gui=underline :11,-84
 
 VertSplit    guifg=#98c379 (95°,38,62) guibg=#98c378
 TabLineFill  guifg=#212c2b
-TabLineSel   guifg=#212c2b             guibg=#98c379 gui=bold   :7.1, 60
-TabLine      guifg=#98c379             guibg=#212c2b            :7.1,-60
+TabLineSel   guifg=#212c2b             guibg=#98c379 gui=bold      :7.1,+60
+TabLine      guifg=#98c379             guibg=#212c2b               :7.1,-60
 
-Pmenu        guifg=#212c2b (174,14,15) guibg=#98c379 (94,38,62)    :7.1, 60
+Pmenu        guifg=#212c2b (174,14,15) guibg=#98c379 (94,38,62)    :7.1,+60
 PmenuSel     guifg=#98c379             guibg=#212c2b gui=underline :7.1,-60
 PmenuSbar                              guibg=#042a26 (174,82,9)
 PmenuThumb                             guibg=#669966 (120,20,50)
@@ -73,11 +73,11 @@ PmenuThumb                             guibg=#669966 (120,20,50)
 WarningMsg guifg=#ff8888 (0°,100,77) guibg=#042a26 (174,82,9) :6.7,Lc=-54
 ErrorMsg   guifg=#ffff00 (60,100,50) guibg=#913030 (0,50,38)  :7.3,Lc=-86
 
-Question      guifg=#95eb15 (84,84,50)   guibg=bg :7.2,Lc=-72
+Question      guifg=#95eb15 (84,84,50)   guibg=bg             :7.2,Lc=-72
 Title         guifg=#95eb15              guibg=bg
 MoreMsg       guifg=#95eb15              guibg=bg
-ModeMsg       guifg=#95eb15              guibg=bg
-Directory     guifg=#6bcbfb (200,95,70)  guibg=bg  gui=bold :5.9,-60
+ModeMsg       guifg=#bff28c (90,80,75)   guibg=bg             :8.3 Lc=-80
+Directory     guifg=#6bcbfb (200,95,70)  guibg=bg  gui=bold   :5.9 Lc=-60
 
 ------------------------------------------------------------------------------
 " 'guisp' sets the color for the underline curl 'gui=undercurl'
@@ -139,8 +139,7 @@ the square bracket.
 
 * X11 96dpi: -20..25%
 :4.6,Lc=-47     :7.2,Lc=-71;    :3.4,Lc=-34     :7.2,Lc=-71     :6.7 Lc=-67
-macOS Retina: -25..30%
-:4.6,Lc=-47     :6.7,Lc=-66;    :3.4,Lc=-34     :6.8,Lc=-68     :6.1 Lc=-62
+* macOS Retina: the pixel color matches the specified color
 
 ------------------------------------------------------------------------------
 " Are these useful?

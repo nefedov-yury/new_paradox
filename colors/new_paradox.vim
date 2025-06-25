@@ -89,8 +89,8 @@ hi Title        guifg=#95eb15   guibg=bg        gui=NONE    cterm=NONE
 " hit-enter prompt (!ls or :set all)
 hi Question     guifg=#95eb15   guibg=bg        gui=NONE    cterm=NONE
 hi MoreMsg      guifg=#95eb15   guibg=bg        gui=NONE    cterm=NONE
-" (:set showmode)
-hi ModeMsg      guifg=#95eb15   guibg=bg        gui=NONE    cterm=NONE
+" (:set showmode) widely used in cmake.vim, so == PreProc
+hi ModeMsg      guifg=#bff28c   guibg=bg        gui=NONE    cterm=NONE
 " (:Texplore)
 hi Directory    guifg=#6bcbfb   guibg=bg        gui=bold    cterm=NONE
 " (:grep or :vimgrep "something" {files})
@@ -172,12 +172,17 @@ hi! link  GitGutterChangeDeleteLine  GitGutterChange
 " in HTML files
 if exists('g:rainbow_active')
   let g:rainbow_conf = get(g:, 'rainbow_conf', {})
+  " if g:rainbow_conf->has_key('guifgs')
+  "       \ || g:rainbow_conf->has_key('ctermfgs')
+  "   echom "WARNING: new_paradox.vim redefines colors in g:rainbow_conf"
+  " endif
   let g:rainbow_conf.guifgs = [
         \'#afffff', '#d7ff00', '#ff8700', '#87ff87', '#ffafd7' ]
   let g:rainbow_conf.ctermfgs = [159, 190, 208, 120, 218]
 endif
 
-" color terminal, colors borrowed from Neo Dark theme
+" Color terminal, colors borrowed from Neo Dark theme
+" --------------
 hi Terminal     guifg=#fffbe8   guibg=#004b3f   gui=NONE    cterm=NONE
 let g:terminal_ansi_colors = [
       \'#133b34','#ff8f8f','#00cc00','#ffd500',
@@ -186,15 +191,6 @@ let g:terminal_ansi_colors = [
       \    '#99e6ff','#ffb3ec','#03ffff','#fffbe8' ]
 hi! link  StatusLineTerm    StatusLine
 hi! link  StatusLineTermNC  StatusLineNC
-" Neo Light 
-if exists('g:neo_light_term') && g:neo_light_term > 0
-  hi Terminal   guifg=#004b3f   guibg=#fffbe8   gui=NONE    cterm=NONE
-  let g:terminal_ansi_colors = [
-        \'#133b34','#c22222','#167116','#806100',
-        \    '#3c3cdc','#971b97','#0b7373','#e8dfb6',
-        \'#004b3f','#f21010','#0a9109','#ffd500',
-        \    '#6262ff','#cc0bcc','#009494','#fffbe8' ]
-endif
 
 " Are these useful?
 " ----------------
@@ -204,6 +200,16 @@ hi debugBreakpoint guifg=#fdd000 guibg=NONE     gui=reverse cterm=reverse
 
 hi Conceal      guifg=#888888   guibg=NONE      gui=NONE    cterm=NONE
 hi Ignore       guifg=NONE      guibg=NONE      gui=NONE    cterm=NONE
+
+" Neo Light
+if exists('g:neo_light_term') && g:neo_light_term > 0
+  hi Terminal   guifg=#004b3f   guibg=#fffbe8   gui=NONE    cterm=NONE
+  let g:terminal_ansi_colors = [
+        \'#133b34','#c22222','#167116','#806100',
+        \    '#3c3cdc','#971b97','#0b7373','#e8dfb6',
+        \'#004b3f','#f21010','#0a9109','#ffd500',
+        \    '#6262ff','#cc0bcc','#009494','#fffbe8' ]
+endif
 
 " GUI (:set guioptions+=T)
 " depends on the system and in most cases does not work
