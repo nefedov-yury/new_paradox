@@ -1,10 +1,8 @@
 " Name:         new_paradox
-" Description:  This is a modification of the paradox color scheme.
-" The theme modification was intended to improve the readability of
-" the text.
+" Description:  This is a modification of the paradox color scheme from the
+" color sampler pack: https://www.vim.org/scripts/script.php?script_id=625
+" The purpose of the change was to improve the readability of the text.
 " Best used with vim-airline 'deus' theme.
-" Sets the colors for the Rainbow plugin for displaying paired
-" brackets
 
 set background=dark
 hi clear
@@ -25,7 +23,20 @@ hi CurSearch    guifg=bg        guibg=#d0e6b3   gui=bold    cterm=bold
 " (:set incsearch)
 hi IncSearch    guifg=NONE      guibg=NONE      gui=reverse cterm=reverse
 
-hi Cursor       guifg=bg        guibg=#17c8c7   gui=NONE    cterm=NONE
+" hi Cursor       guifg=bg        guibg=#17c8c7   gui=NONE    cterm=NONE
+function! s:HiCursor()
+  if &diff
+    hi Cursor   guifg=#ffffff   guibg=#be3fbe   gui=NONE    cterm=NONE
+  else
+    hi Cursor   guifg=bg        guibg=#17c8c7   gui=NONE    cterm=NONE
+  endif
+endfunction
+call s:HiCursor()
+if has("autocmd")
+  autocmd OptionSet diff
+        \ call s:HiCursor()
+endif
+
 " cursor when language-mapping is used
 hi lCursor      guifg=bg        guibg=#ccf20d   gui=NONE    cterm=NONE
 " cursor when IME mode is enabled
@@ -84,13 +95,15 @@ hi PmenuThumb                   guibg=#669966   gui=NONE    cterm=NONE
 " (:echohl WarningMsg | echo "Colored warnging message")
 hi WarningMsg   guifg=#ff8888   guibg=#042a26   gui=NONE    cterm=NONE
 hi ErrorMsg     guifg=#ffff00   guibg=#913030   gui=NONE    cterm=NONE
-" titles for output in vim and titles in html
+
+" titles for output in vim and titles in some syntax files
 hi Title        guifg=#95eb15   guibg=bg        gui=NONE    cterm=NONE
 " hit-enter prompt (!ls or :set all)
-hi Question     guifg=#95eb15   guibg=bg        gui=NONE    cterm=NONE
-hi MoreMsg      guifg=#95eb15   guibg=bg        gui=NONE    cterm=NONE
-" (:set showmode) widely used in cmake.vim, so == PreProc
-hi ModeMsg      guifg=#bff28c   guibg=bg        gui=NONE    cterm=NONE
+hi! link  Question      Title
+hi! link  MoreMsg       Title
+
+" (:set showmode) and widely used in cmake.vim
+hi ModeMsg      guifg=#fff2b2   guibg=bg        gui=NONE    cterm=NONE
 " (:Texplore)
 hi Directory    guifg=#6bcbfb   guibg=bg        gui=bold    cterm=NONE
 " (:grep or :vimgrep "something" {files})
@@ -117,18 +130,18 @@ hi DiffDelete   guifg=bg        guibg=#ebe1af   gui=NONE    cterm=NONE
 hi Comment        guifg=#ffca80 guibg=bg        gui=NONE    cterm=NONE
 hi SpecialComment guifg=#ffca80 guibg=bg        gui=italic  cterm=italic
 
-hi Constant     guifg=#09f5c5   guibg=bg        gui=NONE    cterm=NONE
+hi Constant     guifg=#88e8a8   guibg=bg        gui=NONE    cterm=NONE
 hi! link  Float         Constant
 hi! link  Number        Constant
 hi! link  Boolean       Constant
 
-hi String       guifg=#9fdfdf   guibg=bg        gui=NONE    cterm=NONE
+hi String       guifg=#b8e8e8   guibg=bg        gui=NONE    cterm=NONE
+
 hi Character    guifg=#e3ed7f   guibg=bg        gui=NONE    cterm=NONE
-hi SpecialChar  guifg=#e3ed7f   guibg=bg        gui=NONE    cterm=NONE
+hi! link  SpecialChar   Character
 hi! link  Delimiter     SpecialChar
 
-" it is defined for python but not for c,c++
-hi Identifier   guifg=#fff2b2   guibg=bg        gui=NONE    cterm=NONE
+hi Identifier   guifg=#ffffff   guibg=bg        gui=NONE    cterm=NONE
 hi! link  Function      Identifier
 
 hi Statement    guifg=#ffffff   guibg=bg        gui=NONE    cterm=NONE
@@ -151,7 +164,8 @@ hi! link  Structure     Type
 hi! link  Typedef       Type
 
 " texMath is linked to Special in tex.vim
-hi Special      guifg=#88e8a8   guibg=bg        gui=NONE    cterm=NONE
+hi! link  Special       PreProc
+
 hi Error        guifg=#ffffff   guibg=#913030   gui=bold    cterm=bold
 
 " Note: TODO, FIXME ... XXX
@@ -165,21 +179,6 @@ hi GitGutterChange  guifg=#65b3ff  guibg=#063833  gui=bold  cterm=NONE
 hi GitGutterAdd     guifg=#a9f0a9  guibg=#063833  gui=bold  cterm=NONE
 hi GitGutterDelete  guifg=#ebe1af  guibg=#063833  gui=bold  cterm=NONE
 hi! link  GitGutterChangeDeleteLine  GitGutterChange
-
-" Rainbow plugin: https://github.com/luochen1990/rainbow
-" --------------
-" Note that the rainbow plugin also significantly changes the colors
-" in HTML files
-if exists('g:rainbow_active')
-  let g:rainbow_conf = get(g:, 'rainbow_conf', {})
-  " if g:rainbow_conf->has_key('guifgs')
-  "       \ || g:rainbow_conf->has_key('ctermfgs')
-  "   echom "WARNING: new_paradox.vim redefines colors in g:rainbow_conf"
-  " endif
-  let g:rainbow_conf.guifgs = [
-        \'#afffff', '#d7ff00', '#ff8700', '#87ff87', '#ffafd7' ]
-  let g:rainbow_conf.ctermfgs = [159, 190, 208, 120, 218]
-endif
 
 " Color terminal, colors borrowed from Neo Dark theme
 " --------------
@@ -217,4 +216,4 @@ endif
 " hi ToolbarButton guifg=#ffffff  guibg=#000000   gui=bold    cterm=NONE
 
 " ----------------
-"vim: et ts=8 tw=80
+" vim: et ts=8 tw=80
