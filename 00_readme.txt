@@ -2,6 +2,7 @@ vim: et ts=8 tw=80
 -------------------
 
 ===========================================================
+https://github.com/vim-scripts/colorschemer
 vim-colorsamplerpack/colors/paradox.vim
 
 ===========================================================
@@ -76,7 +77,7 @@ ErrorMsg   guifg=#ffff00 (60,100,50) guibg=#913030 (0,50,38)  :7.3,Lc=-86
 Question      guifg=#95eb15 (84,84,50)   guibg=bg             :7.2,Lc=-72
 Title         guifg=#95eb15              guibg=bg
 MoreMsg       guifg=#95eb15              guibg=bg
-ModeMsg       guifg=#bff28c (90,80,75)   guibg=bg             :8.3 Lc=-80
+ModeMsg       guifg=#fff2b2 (50,100,85)  guibg=bg             :9.5 Lc=-89
 Directory     guifg=#6bcbfb (200,95,70)  guibg=bg  gui=bold   :5.9 Lc=-60
 
 ------------------------------------------------------------------------------
@@ -92,54 +93,37 @@ DiffText    guifg=#000000  guibg=#65b3ff (210,100,70) :9.4, Lc=60
 DiffAdd     guifg=bg       guibg=#a9f0a9 (120, 70,70) :8.0, Lc=76
 DiffDelete  guifg=bg       guibg=#ebe1af ( 50, 60,80) :8.1, Lc=76
 
+diff-Cursor guifg=#ffffff  guibg=#be3fbe (300,50,50)  :4.5 LC=-76
+
 ------------------------------------------------------------------------------
 " Syntax Highlight
 ------------------------------------------------------------------------------
 Comment        guifg=#ffca80 (35,100,75) guibg=bg            :7.2 Lc=-71
 SpecialComment guifg=#ffca80             guibg=bg gui=italic
 
-Constant       guifg=#09f5c5 (168,93,50) guibg=bg            :7.6 Lc=-75
+Constant       guifg=#88e8a8 (140°,68,72) guibg=bg           :7.2 Lc=-71
 
-String         guifg=#9fdfdf (180,50,75) guibg=bg            :7.2 Lc=-71
+String         guifg=#b8e8e8 (180°,51,82) guibg=bg           :8.0 Lc=-78
+
 Character      guifg=#e3ed7f (65,75,71)  guibg=bg            :8.5 Lc=-82
 SpecialChar    guifg=#e3ed7f             guibg=bg
 
-Identifier     guifg=#fff2b2 (50,100,85) guibg=bg            :9.5 Lc=-89
-
 Statement      guifg=#ffffff (white)     guibg=bg            :11  Lc=-99
+Identifier == Statement
 
 PreProc        guifg=#bff28c (90,80,75)  guibg=bg            :8.3 Lc=-80
+Special == PreProc
 
 Type           guifg=#99ddff (200,100,80) guibg=bg           :7.2 Lc=-71
 
-Special        guifg=#88e8a8 (140°,68,72) guibg=bg           :7.2 Lc=-71
-
-Error          guifg=#ffffff  guibg=#913030  gui=bold        :7.9 Lc=-91
+Error          guifg=#ffffff  guibg=#913030 (0°,50,38) gui=bold :7.9 Lc=-91
 
 Todo           guifg=bg  guibg=#a1c587 (95,35,65)  gui=bold  :5.5 Lc=+55
 
-
 ===========================================================
-Test rainbow colors
-===========================================================
-a0 + (a1*[a2*{a3 + (a4*(a5*(a6+a7)))}])
-a0 + [a1*{a2*(a3 + [a4*[a5*[a6+a7]]])}]
-a0 + {a1*(a2*[a3 + {a4*{a5*{a6+a7}}}])}
-[a0,a1,{a2,a3},a4,a5]
-
-cyan            yellow          orange          green           pink
-#afffff         #d7ff00         #ff8700         #87ff87         #ffafd7
-(180,100,84)    (69,100,50)     (32,100,50)     (120,100,76)    (330,100,84)
-:9.5 Lc=-89     :9.3 Lc=-88     :4.5 Lc=-46     :8.5 Lc=-82     :6.3 Lc=-63
-
-Actual contrast may be lower due to the thinness of the bracket
-symbols and the way text is rendered. Below is a table with contrast
-values estimated by the brightest pixel in the vertical part of
-the square bracket.
-
-* X11 96dpi: -20..25%
-:4.6,Lc=-47     :7.2,Lc=-71;    :3.4,Lc=-34     :7.2,Lc=-71     :6.7 Lc=-67
-* macOS Retina: the pixel color matches the specified color
+tested:
+-Constant       guifg=#09f5c5 (168,93,50) guibg=bg            :7.6 Lc=-75
+-String         guifg=#9fdfdf (180,50,75) guibg=bg            :7.2 Lc=-71
 
 ------------------------------------------------------------------------------
 " Are these useful?
@@ -150,6 +134,29 @@ debugBreakpoint guifg=#fdd000 (49,100,50) guibg=NONE gui=reverse :7.3 Lc=+70
 hi Conceal      guifg=#888888 (0°,0,53)   guibg=NONE             :3.0 Lc=-29
 
 ------------------------------------------------------------------------------
+
+
+===========================================================
+Test rainbow colors
+===========================================================
+a0 + (a1*[a2*{a3 + (a4*(a5*(a6+a7)))}])
+a0 + [a1*{a2*(a3 + [a4*[a5*[a6+a7]]])}]
+a0 + {a1*(a2*[a3 + {a4*{a5*{a6+a7}}}])}
+[a0,a1,{a2,a3},a4,a5]
+
+cyan            yellow          green           pink            orange
+#afffff         #d7ff00         #87ff87         #ffafd7         #ff8700
+(180,100,84)    (69,100,50)     (120,100,76)    (330,100,84)    (32,100,50)
+:9.5 Lc=-89     :9.3 Lc=-88     :8.5 Lc=-82     :6.3 Lc=-63     :4.5 Lc=-46
+
+Actual contrast may be lower due to the thinness of the bracket
+symbols and the way text is rendered. Below is a table with contrast
+values estimated by the brightest pixel in the vertical part of
+the square bracket.
+
+* X11 96dpi: -20..25%
+:7.2,Lc=-71;    :7.2,Lc=-71     :6.7 Lc=-67     :4.6,Lc=-47     :3.4,Lc=-34
+* macOS Retina: the pixel color matches the specified color
 
 ===========================================================
 Test for pop-up menu
@@ -181,8 +188,7 @@ rare: vim
 How to insert real tab: <Ctrl-V><Tab>
 
 ===========================================================
-cterm colors:
-main problem - there is no dark green background.
+cterm colors: there is no dark green background,
 Lightness = 19 is minimal.
 
 ===========================================================

@@ -1,5 +1,5 @@
-" Name:         new_paradox
-" Description:  This is a modification of the paradox color scheme from the
+" Name:        new_paradox
+" Description: This is a modification of the paradox color scheme from the
 " color sampler pack: https://www.vim.org/scripts/script.php?script_id=625
 " The purpose of the change was to improve the readability of the text.
 " Best used with vim-airline 'deus' theme.
