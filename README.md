@@ -107,8 +107,8 @@ https://github.com/vim/colorschemes/wiki/How-to-override-a-colorscheme%3F
      fewer colors, but with better readability for each?
 
      I like the minimalist style, but it's hard to follow.
-     I use vim for C, C++, make/cmake, Python, LaTeX, bash/zsh-shells,
-     email, and God knows what else. I used eight colors for syntax
+     I use vim for C, C++, make/cmake, Python, LaTeX, shell scripts,
+     emails, and God knows what else. I used eight colors for syntax
      highlighting. And my attempts to reduce the number of colors failed.
 
      _However, there are good minimalist themes, for example '4colors.vim'
