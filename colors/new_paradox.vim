@@ -23,7 +23,7 @@ hi CurSearch    guifg=bg        guibg=#d0e6b3   gui=bold    cterm=bold
 " (:set incsearch)
 hi IncSearch    guifg=NONE      guibg=NONE      gui=reverse cterm=reverse
 
-" hi Cursor       guifg=bg        guibg=#17c8c7   gui=NONE    cterm=NONE
+" Cursor colors for normal and diff modes
 function! s:HiCursor()
   if &diff
     hi Cursor   guifg=#ffffff   guibg=#be3fbe   gui=NONE    cterm=NONE
@@ -180,14 +180,32 @@ hi GitGutterAdd     guifg=#a9f0a9  guibg=#063833  gui=bold  cterm=NONE
 hi GitGutterDelete  guifg=#ebe1af  guibg=#063833  gui=bold  cterm=NONE
 hi! link  GitGutterChangeDeleteLine  GitGutterChange
 
-" Color terminal, colors borrowed from Neo Dark theme
+" Color terminal: colors borrowed from Neo Dark/Light term-themes
 " --------------
-hi Terminal     guifg=#fffbe8   guibg=#004b3f   gui=NONE    cterm=NONE
-let g:terminal_ansi_colors = [
-      \'#133b34','#ff8f8f','#00cc00','#ffd500',
-      \    '#80bfff','#e599ff','#00cccc','#e8dfb6',
-      \'#004b3f','#ffbbba','#66ff66','#ffff33',
-      \    '#99e6ff','#ffb3ec','#03ffff','#fffbe8' ]
+function! s:TermAnsiColors()
+  if exists('g:neo_light_term') && g:neo_light_term > 0
+    " Neo Light
+    hi Terminal guifg=#004b3f   guibg=#fffbe8   gui=NONE    cterm=NONE
+    let s:my_term_colors = [
+          \'#133b34','#c22222','#167116','#806100',
+          \    '#3c3cdc','#971b97','#0b7373','#e8dfb6',
+          \'#004b3f','#f21010','#0a9109','#ffd500',
+          \    '#6262ff','#cc0bcc','#009494','#fffbe8' ]
+  else
+    " Neo Dark (default)
+    hi Terminal   guifg=#fffbe8   guibg=#004b3f   gui=NONE    cterm=NONE
+    let s:my_term_colors = [
+          \'#133b34','#ff8f8f','#00cc00','#ffd500',
+          \    '#80bfff','#e599ff','#00cccc','#e8dfb6',
+          \'#004b3f','#ffbbba','#66ff66','#ffff33',
+          \    '#99e6ff','#ffb3ec','#03ffff','#fffbe8' ]
+  endif
+  call term_setansicolors('%', s:my_term_colors)
+endfunction
+if has("autocmd")
+  autocmd TerminalWinOpen *
+        \ call s:TermAnsiColors()
+endif
 hi! link  StatusLineTerm    StatusLine
 hi! link  StatusLineTermNC  StatusLineNC
 
@@ -199,16 +217,6 @@ hi debugBreakpoint guifg=#fdd000 guibg=NONE     gui=reverse cterm=reverse
 
 hi Conceal      guifg=#888888   guibg=NONE      gui=NONE    cterm=NONE
 hi Ignore       guifg=NONE      guibg=NONE      gui=NONE    cterm=NONE
-
-" Neo Light
-if exists('g:neo_light_term') && g:neo_light_term > 0
-  hi Terminal   guifg=#004b3f   guibg=#fffbe8   gui=NONE    cterm=NONE
-  let g:terminal_ansi_colors = [
-        \'#133b34','#c22222','#167116','#806100',
-        \    '#3c3cdc','#971b97','#0b7373','#e8dfb6',
-        \'#004b3f','#f21010','#0a9109','#ffd500',
-        \    '#6262ff','#cc0bcc','#009494','#fffbe8' ]
-endif
 
 " GUI (:set guioptions+=T)
 " depends on the system and in most cases does not work

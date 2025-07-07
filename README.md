@@ -1,16 +1,16 @@
 ---------------------------------------------------------------------------
 ## new_paradox.vim
 
-* This is Vim color scheme with dark blue-green background.
-  Works in GUI or truecolor terminals.
+* Vim color scheme with a dark blue-green background.
+  It is intended for GUI or true-color terminals.
 
-* This is a modification of the paradox color scheme from the
+* This is a modification of the Paradox color scheme from the
   [color sampler pack](
   https://www.vim.org/scripts/script.php?script_id=625).
   The purpose of the change was to improve the visibility in terms
   of readability of the edited text.
 
-* Best used with vim-airline **deus** theme.
+* Best used with Vim-Airline **deus** theme.
 
 ---------------------------------------------------------------------------
 ## Installation
@@ -24,11 +24,11 @@
 ## Usage Notes
 
 * This scheme, as well as the original one, goes surprisingly well with
-  the **deuce** theme of the vim-airline package.
+  the **deuce** theme of the Vim-Airline package.
 
 * I use the [Rainbow plugin](https://github.com/luochen1990/rainbow)
-  to display matching brackets. The following settings are good for
-  the `new_paradox.vim` color scheme:
+  to display matching brackets. I would recommend the following settings
+  for the `new_paradox.vim` color scheme:
   ```
   " light gray, pale turquoise, yellow, light green, pink, dark orange
   let g:rainbow_active = 1
@@ -44,6 +44,14 @@
   map <F9> :RainbowToggle<CR>
   ```
 
+* By default, I chose the colors of the terminal emulator built into Vim
+  to be the same as in the 'Normal' highlighting. However, if you prefer
+  a terminal with a light background, set the following variable
+  before calling the `:terminal` command:
+  ```
+  let g:neo_light_term = 1  " light background, = 0 for dark bg.
+  ```
+
 * [Recipes for those who want to change some colors in the scheme](
 https://github.com/vim/colorschemes/wiki/How-to-override-a-colorscheme%3F
 )
@@ -53,7 +61,7 @@ https://github.com/vim/colorschemes/wiki/How-to-override-a-colorscheme%3F
 
 1. Contrast
 
-   As one of the criteria of readability I used the concept of contrast
+   As one of the criteria of readability, I used the concept of contrast
    between the text color and the background color. The estimate of such
    contrast was carried out using two methods:
    - [WCAG 2.x contrast ratio calculation](
@@ -91,25 +99,26 @@ https://github.com/vim/colorschemes/wiki/How-to-override-a-colorscheme%3F
 
      My short answer to both questions is no. Syntax highlighting colors
      are not required, but they should not make the program or text
-     difficult to understand. It seems to me that in this context the
+     difficult to understand. It seems to me that in this context, the
      color highlighting resembles calligraphy.
 
-     However, some people do not like syntax highlighting and there are
+     However, some people do not like syntax highlighting, and there are
      some good reasons for that, such as in the article
      [*A case against syntax highlighting*](
      https://www.linusakesson.net/programming/syntaxhighlighting/
      ) by Linus Åkesson.
 
      _An example is the nice monochrome 'quiete.vim' theme,
-     which is part of the vim 9.1 color scheme set._
+     which is part of the Vim 9.1 color scheme set._
 
-   * How many colors should a good theme have? Is not it better to use
+   * How many colors should a good theme have? Is it not better to use
      fewer colors, but with better readability for each?
 
      I like the minimalist style, but it's hard to follow.
-     I use vim for C, C++, make/cmake, Python, LaTeX, shell scripts,
+     I use Vim for C, C++, make/cmake, Python, LaTeX, shell scripts,
      emails, and God knows what else. I used eight colors for syntax
-     highlighting. And my attempts to reduce the number of colors failed.
+     highlighting in the 'new_paradox' scheme. And my attempts to reduce
+     the number of colors failed.
 
      _However, there are good minimalist themes, for example '4colors.vim'
      which uses only four colors for everything._
