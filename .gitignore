@@ -1,1 +1,6 @@
 *.sw?
+# pdf-LaTeX temporary files
+*.aux
+*.log
+*.toc
+*.fot
