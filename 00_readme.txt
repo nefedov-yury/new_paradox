@@ -156,6 +156,7 @@ the square bracket.
 
 * X11 96dpi: -20..25%
 :7.2,Lc=-71;    :7.2,Lc=-71     :6.7 Lc=-67     :4.6,Lc=-47     :3.4,Lc=-34
+
 * macOS Retina: the pixel color matches the specified color
 
 ===========================================================
@@ -188,7 +189,7 @@ rare: vim
 How to insert real tab: <Ctrl-V><Tab>
 
 ===========================================================
-cterm colors: there is no dark green background,
+256 colors: there is no dark green background,
 Lightness = 19 is minimal.
 
 ===========================================================
