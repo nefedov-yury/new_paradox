@@ -49,12 +49,32 @@
   a terminal with a light background, set the following variable
   before calling the `:terminal` command:
   ```
-  let g:neo_light_term = 1  " light background, = 0 for dark bg.
+  let g:paradox_term = 1  " light background, -1 for dark bg.
   ```
 
-* [Recipes for those who want to change some colors in the scheme](
+* Recipes for those who want to change some colors in the scheme:
+   ```
+   function! s:override_new_paradox()
+     " Castomization for new_paradox
+     hi CursorNorm guifg=bg guibg=white gui=NONE cterm=NONE
+     hi Comment cterm=italic gui=italic
+   endfunction
+   if has("autocmd")
+     autocmd ColorScheme new_paradox
+           \ call s:override_new_paradox()
+   endif
+   ```
+  [More detailed instructions here.](
 https://github.com/vim/colorschemes/wiki/How-to-override-a-colorscheme%3F
 )
+
+---------------------------------------------------------------------------
+## Screenshots
+![](./new_paradox_macvim.png)\
+_Screenshot of MacVim window with new_paradox color scheme_
+
+![](./new_paradox_iTerm2.png)\
+_Screenshot of iTerm2 window with new_paradox color scheme_
 
 ---------------------------------------------------------------------------
 ## Notes on "Good Readability"
@@ -114,11 +134,11 @@ https://github.com/vim/colorschemes/wiki/How-to-override-a-colorscheme%3F
    * How many colors should a good theme have? Is it not better to use
      fewer colors, but with better readability for each?
 
-     I like the minimalist style, but it's hard to follow.
-     I use Vim for C, C++, make/cmake, Python, LaTeX, shell scripts,
-     emails, and God knows what else. I used eight colors for syntax
-     highlighting in the 'new_paradox' scheme. And my attempts to reduce
-     the number of colors failed.
+     I like the minimalist style, but it's hard to follow. I used eight
+     colors for syntax highlighting in the 'new_paradox' scheme.
+     And my attempts to reduce the number of colors failed.
+     It seems impossible to achieve a perfect match of one color theme to
+     the syntax of different programming languages.
 
      _However, there are good minimalist themes, for example '4colors.vim'
      which uses only four colors for everything._

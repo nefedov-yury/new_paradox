@@ -24,11 +24,13 @@ hi CurSearch    guifg=bg        guibg=#d0e6b3   gui=bold    cterm=bold
 hi IncSearch    guifg=NONE      guibg=NONE      gui=reverse cterm=reverse
 
 " Cursor colors for normal and diff modes
+hi CursorNorm   guifg=bg        guibg=#17c8c7   gui=NONE    cterm=NONE
+hi CursorDiff   guifg=#ffffff   guibg=#be3fbe   gui=NONE    cterm=NONE
 function! s:HiCursor()
   if &diff
-    hi Cursor   guifg=#ffffff   guibg=#be3fbe   gui=NONE    cterm=NONE
+    hi! link  Cursor  CursorDiff
   else
-    hi Cursor   guifg=bg        guibg=#17c8c7   gui=NONE    cterm=NONE
+    hi! link  Cursor  CursorNorm
   endif
 endfunction
 call s:HiCursor()
@@ -183,24 +185,28 @@ hi! link  GitGutterChangeDeleteLine  GitGutterChange
 " Color terminal: colors borrowed from Neo Dark/Light term-themes
 " --------------
 function! s:TermAnsiColors()
-  if exists('g:neo_light_term') && g:neo_light_term > 0
-    " Neo Light
-    hi Terminal guifg=#004b3f   guibg=#fffbe8   gui=NONE    cterm=NONE
-    let s:my_term_colors = [
-          \'#133b34','#c22222','#167116','#806100',
-          \    '#3c3cdc','#971b97','#0b7373','#e8dfb6',
-          \'#004b3f','#f21010','#0a9109','#ffd500',
-          \    '#6262ff','#cc0bcc','#009494','#fffbe8' ]
-  else
-    " Neo Dark (default)
+  " NOTE: if colors are specified using the 'g:terminal_ansi_colors',
+  "       the 'g:paradox_term' variable changes only the background
+  if !exists('g:paradox_term') || g:paradox_term < 0
+    " Dark background (default)
     hi Terminal   guifg=#fffbe8   guibg=#004b3f   gui=NONE    cterm=NONE
     let s:my_term_colors = [
           \'#133b34','#ff8f8f','#00cc00','#ffd500',
           \    '#80bfff','#e599ff','#00cccc','#e8dfb6',
           \'#004b3f','#ffbbba','#66ff66','#ffff33',
           \    '#99e6ff','#ffb3ec','#03ffff','#fffbe8' ]
+  elseif exists('g:paradox_term') && g:paradox_term > 0
+    " Light background
+    hi Terminal guifg=#004b3f   guibg=#fffbe8   gui=NONE    cterm=NONE
+    let s:my_term_colors = [
+          \'#133b34','#c22222','#167116','#806100',
+          \    '#3c3cdc','#971b97','#0b7373','#e8dfb6',
+          \'#004b3f','#f21010','#0a9109','#ffd500',
+          \    '#6262ff','#cc0bcc','#009494','#fffbe8' ]
   endif
-  call term_setansicolors('%', s:my_term_colors)
+  if !exists('g:terminal_ansi_colors')
+    call term_setansicolors('%', s:my_term_colors)
+  endif
 endfunction
 if has("autocmd")
   autocmd TerminalWinOpen *
