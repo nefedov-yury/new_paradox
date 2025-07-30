@@ -2,7 +2,7 @@
 ## new_paradox.vim
 
 * Vim color scheme with a dark blue-green background
-  [(see screenshorts)](#screenshorts).
+  [(see screenshots)](#screenshots).
   It is intended for GUI or true-color terminals.
 
 * This is a modification of the Paradox color scheme from the
