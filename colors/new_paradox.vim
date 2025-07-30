@@ -60,8 +60,15 @@ hi CursorLineNr guifg=#c5d888   guibg=#065d55   gui=NONE    cterm=NONE
 
 " (:set cc=+1)
 hi ColorColumn                  guibg=#913030   gui=NONE    cterm=NONE
+
 " paired brackets
-hi MatchParen   guifg=bg        guibg=#f3f33f   gui=NONE    cterm=NONE
+hi MatchParen   guifg=bg        guibg=#f8f88f   gui=NONE    cterm=NONE
+if has("autocmd")
+  autocmd InsertEnter *
+        \ hi MatchParen         gui=reverse     cterm=reverse
+  autocmd InsertLeave *
+        \ hi MatchParen         gui=NONE        cterm=NONE
+endif
 
 " characters that do not really exist in the text (:set list)
 hi NonText      guifg=#cc6666   guibg=#063833   gui=NONE    cterm=NONE

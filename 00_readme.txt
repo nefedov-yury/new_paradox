@@ -44,7 +44,7 @@ CursorLineNr guifg=#c5d888 (74,51,69) guibg=#065d55             :5.1 Lc=-62
 
 ColorColumn  guibg=#913030 (0°,50,38)           txt: 6.3 Lc=-75
 
-MatchParen   guifg=bg  guibg=#f3f33f (60,88,60)  bg: 9.0 Lc=83
+MatchParen   guifg=bg  guibg=#f8f88f (60,88,77)  bg: 9.6 Lc= 87 / -90
 
 NonText     guifg=#cc6666 (0°,50,60)  guibg=#063833 (174,81,12) :3.5 Lc=-32
 SpecialKey  guifg=#ffa2a2 (0°,100,82) guibg=#063833             :6.7 Lc=-60
