@@ -136,12 +136,13 @@ _Screenshot of iTerm2 window with new_paradox color scheme_
      fewer colors, but with better readability for each?
 
      I like the minimalist style, but it's hard to follow. I used eight
-     colors for syntax highlighting in the 'new_paradox' scheme.
-     And my attempts to reduce the number of colors failed.
+     colors for syntax highlighting in the 'new_paradox' scheme
+     and my attempts to reduce the number of colors failed.
      It seems impossible to achieve a perfect match of one color theme to
      the syntax of different programming languages.
 
-     _However, there are good minimalist themes, for example '4colors.vim'
+     _However, there are good minimalist themes, for example
+     ['4colors.vim'](https://github.com/mihaifm/4colors)
      which uses only four colors for everything._
 
 ---------------------------------------------------------------------------
